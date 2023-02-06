@@ -8,8 +8,6 @@ python -m venv .venv
 
 pip install -r requirements.txt
 
-python -m pip install flask-sqlalchemy
-
 # To build docker image
 docker build -t saisri/api-project:0.0.1.RELEASE .
 
