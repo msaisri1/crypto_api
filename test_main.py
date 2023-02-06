@@ -1,4 +1,4 @@
-import json,requests
+import json
 import pytest
 from flask import Flask
 from main import app,db
@@ -44,7 +44,13 @@ def test_get_market_by_id(client):
     assert type(data["symbol"]) == str
     assert type(data["updatedAt"]) == str
     assert type(data["volume"]) == str
-
     assert data["symbol"] == "LTC-BTC"
+    assert data['high'] is not None
+    assert data['percentChange'] is not None
+    assert data['quoteVolume'] is not None
+    assert data['symbol'] is not None
+    assert data['updatedAt'] is not None
+    assert data['volume'] is not None
+    
     
 

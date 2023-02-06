@@ -1,9 +1,7 @@
 from flask import Flask, request, jsonify
-from flask import Flask, request, jsonify
 import requests
 from models import *
 from schemas import *
-from flask_httpauth import HTTPBasicAuth
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token,get_jwt_identity
 
@@ -13,8 +11,6 @@ from flask_bcrypt import Bcrypt
 import json
 
 from flask_swagger_ui import get_swaggerui_blueprint
-
-
 
 
 app = Flask(__name__)
@@ -48,7 +44,7 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 
 @app.route('/api/v3/markets/summaries', methods=['GET'])
-@jwt_required()
+#@jwt_required()
 def market_data():
     response = requests.get('https://api.bittrex.com/v3/markets/summaries', verify = False)
     markets = response.json()
@@ -59,7 +55,7 @@ def market_data():
 
 
 @app.route('/api/v3/markets/<string:id>/summary', methods=['GET'])
-@jwt_required()
+#@jwt_required()
 def get_market_by_id(id):
     response = requests.get('https://api.bittrex.com/v3/markets/'+id+'/summary', verify = False)
     market = response.json()
