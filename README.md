@@ -50,8 +50,9 @@ flask-jwt-extended
 flask-swagger-ui
 requests
 ```
-#Swagger documentation
-#installation
+# Swagger documentation
+
+## installation
 ```bash
 from flask_swagger_ui import get_swaggerui_blueprint
 ```
